@@ -25,5 +25,7 @@ void loop() {
   Serial.print("Power: ");
   Serial.print(ina260.readPower());
   Serial.println(" mW");
+
+  Serial.println();
   delay(1000);
 }
