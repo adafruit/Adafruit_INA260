@@ -74,7 +74,7 @@ and bus voltage measurement time */
 class Adafruit_INA260 {
 public:
   Adafruit_INA260();
-  boolean begin(TwoWire *theWire = &Wire);
+  boolean begin(uint8_t i2c_addr=INA260_I2CADDR_DEFAULT, TwoWire *theWire = &Wire);
   void reset(void);
   float readCurrent(void);
   float readBusVoltage(void);
