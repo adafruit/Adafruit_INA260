@@ -1,7 +1,4 @@
 #include <Adafruit_INA260.h>
-#ifdef __AVR__
-  #include <avr/power.h>
-#endif
 
 Adafruit_INA260 ina260 = Adafruit_INA260();
 
@@ -9,16 +6,24 @@ void setup() {
   while (!Serial) { delay(10); }
   Serial.begin(115200);
   Serial.println("Adafruit INA260 Test");
-  ina260.begin();
+  if (!ina260.begin()) {
+    Serial.println("Couldn't find INA260 chip");
+    while (1);
+  }
+  Serial.println("Found INA260 chip");
 }
 
 void loop() {
   Serial.print("Current: ");
-  Serial.println(ina260.readCurrent());
+  Serial.print(ina260.readCurrent());
+  Serial.println(" mA");
+
   Serial.print("Bus Voltage: ");
-  Serial.println(ina260.readBusVoltage());
+  Serial.print(ina260.readBusVoltage());
+  Serial.println(" mV");
+
   Serial.print("Power: ");
-  Serial.println(ina260.readCurrent());
-  Serial.println();
+  Serial.print(ina260.readPower());
+  Serial.println(" mW");
   delay(1000);
 }
