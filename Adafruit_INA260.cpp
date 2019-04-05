@@ -53,21 +53,29 @@ boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
     return false;
   }
 
-    Current = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
-    BusVoltage = new Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
-    Power = new Adafruit_I2CRegister(i2c_dev, INA260_REG_POWER, 2, MSBFIRST);
-    Config = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CONFIG, 2, MSBFIRST);
-    MaskEnable = new Adafruit_I2CRegister(i2c_dev, INA260_REG_MASK_ENABLE, 2, MSBFIRST);
-    AlertLimit = new Adafruit_I2CRegister(i2c_dev, INA260_REG_ALERT_LIMIT, 2, MSBFIRST);
-    
+  Adafruit_I2CRegister *die_register = new Adafruit_I2CRegister(i2c_dev, INA260_REG_DIE_UID, 2, MSBFIRST);
+  Adafruit_I2CRegister *mfg_register = new Adafruit_I2CRegister(i2c_dev, INA260_REG_MFG_UID, 2, MSBFIRST);
+  Adafruit_I2CRegisterBits *device_id = new Adafruit_I2CRegisterBits(die_register, 12, 4);
 
-    AveragingCount = new Adafruit_I2CRegisterBits(Config, 3, 9); 
-    ConversionReady = new Adafruit_I2CRegisterBits(MaskEnable, 1, 3);
-    CurrentConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 3);
-    VoltageConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 6);
-    Mode = new Adafruit_I2CRegisterBits(Config, 3, 0);
-    Reset = new Adafruit_I2CRegisterBits(Config, 1, 15);
-    reset();
+  // make sure we're talking to the right chip
+  if ((mfg_register->read() != 0x5449) || (device_id->read() != 0x227)) {
+    return false;
+  }
+
+  Current = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
+  BusVoltage = new Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
+  Power = new Adafruit_I2CRegister(i2c_dev, INA260_REG_POWER, 2, MSBFIRST);
+  Config = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CONFIG, 2, MSBFIRST);
+  MaskEnable = new Adafruit_I2CRegister(i2c_dev, INA260_REG_MASK_ENABLE, 2, MSBFIRST);
+  AlertLimit = new Adafruit_I2CRegister(i2c_dev, INA260_REG_ALERT_LIMIT, 2, MSBFIRST);
+
+
+  AveragingCount = new Adafruit_I2CRegisterBits(Config, 3, 9);
+  ConversionReady = new Adafruit_I2CRegisterBits(MaskEnable, 1, 3);
+  CurrentConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 3);
+  VoltageConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 6);
+  Mode = new Adafruit_I2CRegisterBits(Config, 3, 0);
+  reset();
   return true;
 }
 /**************************************************************************/
@@ -77,6 +85,7 @@ boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
 */
 /**************************************************************************/
 void Adafruit_INA260::reset(void){
+  Adafruit_I2CRegisterBits *Reset = new Adafruit_I2CRegisterBits(Config, 1, 15);
   Reset->write(1);
 }
 /**************************************************************************/
