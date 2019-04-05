@@ -101,8 +101,8 @@ public:
                            *ConversionReady, ///< BusIO RegisterBits object for conversion readyness check
                            *CurrentConversionTime, ///< BusIO RegisterBits object for current conversion time
                            *VoltageConversionTime, ///< BusIO RegisterBits object for voltage conversion time
-                           *Mode, ///< BusIO RegisterBits object for mode
-                           *Reset; ///< BusIO RegisterBits object for reset
+                           *Mode; ///< BusIO RegisterBits object for mode
+                           
 private:
   Adafruit_I2CDevice *i2c_dev;
 
