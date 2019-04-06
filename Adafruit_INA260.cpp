@@ -76,6 +76,7 @@ boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
   VoltageConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 6);
   Mode = new Adafruit_I2CRegisterBits(Config, 3, 0);
   reset();
+  delay(2); // delay 2ms to give time for first measurement to finish
   return true;
 }
 /**************************************************************************/
