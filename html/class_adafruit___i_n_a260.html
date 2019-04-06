@@ -78,9 +78,9 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#ac28134478079c838bb7dd9e2240dd5e6">Adafruit_INA260</a> ()</td></tr>
 <tr class="memdesc:ac28134478079c838bb7dd9e2240dd5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instantiates a new INA260 class. <br /></td></tr>
 <tr class="separator:ac28134478079c838bb7dd9e2240dd5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae755b85388a7c980da5928665affd496"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#ae755b85388a7c980da5928665affd496">begin</a> (TwoWire *theWire=&amp;Wire)</td></tr>
-<tr class="memdesc:ae755b85388a7c980da5928665affd496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the HW.  <a href="#ae755b85388a7c980da5928665affd496">More...</a><br /></td></tr>
-<tr class="separator:ae755b85388a7c980da5928665affd496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e04160c91fe56b2b02cc077ed044bbe"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#a6e04160c91fe56b2b02cc077ed044bbe">begin</a> (uint8_t i2c_addr=<a class="el" href="_adafruit___i_n_a260_8h.html#a8f6ea354642738c59d5ae434b553e502">INA260_I2CADDR_DEFAULT</a>, TwoWire *theWire=&amp;Wire)</td></tr>
+<tr class="memdesc:a6e04160c91fe56b2b02cc077ed044bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the HW.  <a href="#a6e04160c91fe56b2b02cc077ed044bbe">More...</a><br /></td></tr>
+<tr class="separator:a6e04160c91fe56b2b02cc077ed044bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a733d6f4f8cf1879f6736929bb3fc10cc"><td class="memItemLeft" align="right" valign="top"><a id="a733d6f4f8cf1879f6736929bb3fc10cc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#a733d6f4f8cf1879f6736929bb3fc10cc">reset</a> (void)</td></tr>
 <tr class="memdesc:a733d6f4f8cf1879f6736929bb3fc10cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the harware. By setting the MSB of the config register, all registers are set to default values, the same as a power-on reset. <br /></td></tr>
@@ -165,16 +165,12 @@ Adafruit_I2CRegisterBits *&#160;</td><td class="memItemRight" valign="bottom"><a
 Adafruit_I2CRegisterBits *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#a0b255a66ee3ad2c338229a76c0ff6919">Mode</a></td></tr>
 <tr class="memdesc:a0b255a66ee3ad2c338229a76c0ff6919"><td class="mdescLeft">&#160;</td><td class="mdescRight">BusIO RegisterBits object for mode. <br /></td></tr>
 <tr class="separator:a0b255a66ee3ad2c338229a76c0ff6919"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f5e53e6a25e67c909f7e3776f589ac9"><td class="memItemLeft" align="right" valign="top"><a id="a2f5e53e6a25e67c909f7e3776f589ac9"></a>
-Adafruit_I2CRegisterBits *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___i_n_a260.html#a2f5e53e6a25e67c909f7e3776f589ac9">Reset</a></td></tr>
-<tr class="memdesc:a2f5e53e6a25e67c909f7e3776f589ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">BusIO RegisterBits object for reset. <br /></td></tr>
-<tr class="separator:a2f5e53e6a25e67c909f7e3776f589ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that stores state and functions for interacting with INA260 Current and Power Sensor. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae755b85388a7c980da5928665affd496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae755b85388a7c980da5928665affd496">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="a6e04160c91fe56b2b02cc077ed044bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e04160c91fe56b2b02cc077ed044bbe">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,9 +178,19 @@ Adafruit_I2CRegisterBits *&#160;</td><td class="memItemRight" valign="bottom"><a
         <tr>
           <td class="memname">boolean Adafruit_INA260::begin </td>
           <td>(</td>
-          <td class="paramtype">TwoWire *&#160;</td>
-          <td class="paramname"><em>theWire</em> = <code>&amp;Wire</code></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>i2c_address</em> = <code><a class="el" href="_adafruit___i_n_a260_8h.html#a8f6ea354642738c59d5ae434b553e502">INA260_I2CADDR_DEFAULT</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">TwoWire *&#160;</td>
+          <td class="paramname"><em>theWire</em> = <code>&amp;Wire</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -192,7 +198,8 @@ Adafruit_I2CRegisterBits *&#160;</td><td class="memItemRight" valign="bottom"><a
 <p>Sets up the HW. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">theWire</td><td></td></tr>
+    <tr><td class="paramname">i2c_address</td><td>The I2C address to be used. </td></tr>
+    <tr><td class="paramname">theWire</td><td>The Wire object to be used for I2C connections. </td></tr>
   </table>
   </dd>
 </dl>
