@@ -43,7 +43,10 @@ Adafruit_INA260::Adafruit_INA260(void) {}
 
 /*!
  *    @brief  Sets up the HW
+ *    @param  i2c_address
+ *            The I2C address to be used.
  *    @param  theWire
+ *            The Wire object to be used for I2C connections.
  *    @return True if initialization was successful, otherwise false.
  */
 boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
