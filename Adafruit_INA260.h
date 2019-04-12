@@ -88,20 +88,12 @@ public:
   void setCurrentConversionTime(uint8_t time);
   uint8_t getVoltageConversionTime(void);
   void setVoltageConversionTime(uint8_t time);
+  uint8_t getAveragingCount(void);
   void setAveragingCount(uint8_t count);
 
-  Adafruit_I2CRegister *Current, ///< BusIO Register for Current
-                       *BusVoltage,  ///< BusIO Register for BusVoltage
-                       *Power,  ///< BusIO Register for Power
-                       *Config,  ///< BusIO Register for Config
+  Adafruit_I2CRegister *Config,  ///< BusIO Register for Config
                        *MaskEnable, ///< BusIO Register for MaskEnable
                        *AlertLimit; ///< BusIO Register for AlertLimit
-
-  Adafruit_I2CRegisterBits *AveragingCount, ///< BusIO RegisterBits object for averaging count
-                           *ConversionReady, ///< BusIO RegisterBits object for conversion readyness check
-                           *CurrentConversionTime, ///< BusIO RegisterBits object for current conversion time
-                           *VoltageConversionTime, ///< BusIO RegisterBits object for voltage conversion time
-                           *Mode; ///< BusIO RegisterBits object for mode
                            
 private:
   Adafruit_I2CDevice *i2c_dev;

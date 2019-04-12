@@ -65,32 +65,25 @@ boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
     return false;
   }
 
-  Current = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
-  BusVoltage = new Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
-  Power = new Adafruit_I2CRegister(i2c_dev, INA260_REG_POWER, 2, MSBFIRST);
+
   Config = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CONFIG, 2, MSBFIRST);
   MaskEnable = new Adafruit_I2CRegister(i2c_dev, INA260_REG_MASK_ENABLE, 2, MSBFIRST);
   AlertLimit = new Adafruit_I2CRegister(i2c_dev, INA260_REG_ALERT_LIMIT, 2, MSBFIRST);
 
-
-  AveragingCount = new Adafruit_I2CRegisterBits(Config, 3, 9);
-  ConversionReady = new Adafruit_I2CRegisterBits(MaskEnable, 1, 3);
-  CurrentConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 3);
-  VoltageConversionTime = new Adafruit_I2CRegisterBits(Config, 3, 6);
-  Mode = new Adafruit_I2CRegisterBits(Config, 3, 0);
   reset();
   delay(2); // delay 2ms to give time for first measurement to finish
   return true;
 }
 /**************************************************************************/
 /*!
-    @brief  Resets the harware. By setting the MSB of the config register,
-    all registers are set to default values, the same as a power-on reset.
+    @brief Resets the harware. All registers are set to default values,
+    the same as a power-on reset.
 */
 /**************************************************************************/
 void Adafruit_INA260::reset(void){
-  Adafruit_I2CRegisterBits *Reset = new Adafruit_I2CRegisterBits(Config, 1, 15);
-  Reset->write(1);
+  Adafruit_I2CRegisterBits reset =
+    Adafruit_I2CRegisterBits(Config, 1, 15);
+  reset.write(1);
 }
 /**************************************************************************/
 /*!
@@ -99,7 +92,9 @@ void Adafruit_INA260::reset(void){
 */
 /**************************************************************************/
 float Adafruit_INA260::readCurrent(void) {
-  return (int16_t)Current->read() * 1.25;
+  Adafruit_I2CRegister current =
+    Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
+  return (int16_t)current.read() * 1.25;
 }
 /**************************************************************************/
 /*!
@@ -108,7 +103,9 @@ float Adafruit_INA260::readCurrent(void) {
 */
 /**************************************************************************/
 float Adafruit_INA260::readBusVoltage(void) {
-  return BusVoltage->read() * 1.25;
+  Adafruit_I2CRegister bus_voltage =
+    Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
+  return bus_voltage.read() * 1.25;
 }
 /**************************************************************************/
 /*!
@@ -117,82 +114,111 @@ float Adafruit_INA260::readBusVoltage(void) {
 */
 /**************************************************************************/
 float Adafruit_INA260::readPower(void) {
-  return Power->read() * 10;
+  Adafruit_I2CRegister power =
+    Adafruit_I2CRegister(i2c_dev, INA260_REG_POWER, 2, MSBFIRST);
+  return power.read() * 10;
 }
 /**************************************************************************/
 /*!
-    @brief Returns the current mode
-    @return The current Power calculation in mW
+    @brief Returns the current measurement mode
+    @return The current mode
 */
 /**************************************************************************/
 uint8_t Adafruit_INA260::getMode(void) {
-  return Mode->read();
+  Adafruit_I2CRegisterBits mode =
+    Adafruit_I2CRegisterBits(Config, 3, 0);
+  return mode.read();
 }
 /**************************************************************************/
 /*!
-    @brief Returns the current mode
-    @param mode
+    @brief Sets a new measurement mode
+    @param new_mode
            The new mode to be set
 */
 /**************************************************************************/
-void Adafruit_INA260::setMode(uint8_t mode) {
-  Mode->write(mode);
+void Adafruit_INA260::setMode(uint8_t new_mode) {
+  Adafruit_I2CRegisterBits mode =
+    Adafruit_I2CRegisterBits(Config, 3, 0);
+  mode.write(new_mode);
 }
 /**************************************************************************/
 /*!
-    @brief Set the number of averaging samples
+    @brief Reads the current number of averaging samples
+    @return The current number of averaging samples
+*/
+/**************************************************************************/
+uint8_t Adafruit_INA260::getAveragingCount(void){
+  Adafruit_I2CRegisterBits averaging_count =
+    Adafruit_I2CRegisterBits(Config, 3, 9);
+  return averaging_count.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets the number of averaging samples
     @param count
            The number of samples to be averaged
 */
 /**************************************************************************/
 void Adafruit_INA260::setAveragingCount(uint8_t count){
-  AveragingCount->write(count);
+  Adafruit_I2CRegisterBits averaging_count =
+    Adafruit_I2CRegisterBits(Config, 3, 9);
+  averaging_count.write(count);
 }
 /**************************************************************************/
 /*!
-    @brief Read the current current conversion time register
+    @brief Reads the current current conversion time
     @return The current current conversion time
 */
 /**************************************************************************/
 uint8_t Adafruit_INA260::getCurrentConversionTime(void){
-  return CurrentConversionTime->read();
+  Adafruit_I2CRegisterBits current_conversion_time =
+    Adafruit_I2CRegisterBits(Config, 3, 3);
+  return current_conversion_time.read();
 }
 /**************************************************************************/
 /*!
-    @brief Set the current conversion time
+    @brief Sets the current conversion time
     @param time
            The new current conversion time
 */
 /**************************************************************************/
 void Adafruit_INA260::setCurrentConversionTime(uint8_t time){
-  CurrentConversionTime->write(time);
+  Adafruit_I2CRegisterBits current_conversion_time =
+    Adafruit_I2CRegisterBits(Config, 3, 3);
+  current_conversion_time.write(time);
 }
 /**************************************************************************/
 /*!
-    @brief Read the current bus voltage conversion time register
+    @brief Reads the current bus voltage conversion time
     @return The current bus voltage conversion time
 */
 /**************************************************************************/
 uint8_t Adafruit_INA260::getVoltageConversionTime(void){
-  return VoltageConversionTime->read();
+  Adafruit_I2CRegisterBits voltage_conversion_time =
+    Adafruit_I2CRegisterBits(Config, 3, 6);
+  return voltage_conversion_time.read();
 }
 /**************************************************************************/
 /*!
-    @brief Set the bus voltage conversion time
+    @brief Sets the bus voltage conversion time
     @param time
            The new bus voltage conversion time
 */
 /**************************************************************************/
 void Adafruit_INA260::setVoltageConversionTime(uint8_t time){
-  VoltageConversionTime->write(time);
+  Adafruit_I2CRegisterBits voltage_conversion_time =
+    Adafruit_I2CRegisterBits(Config, 3, 6);
+  voltage_conversion_time.write(time);
 }
 
 /**************************************************************************/
 /*!
-    @brief check if the most recent one shot measurement has completed
+    @brief Checks if the most recent one shot measurement has completed
     @return true if the conversion has completed
 */
 /**************************************************************************/
 bool Adafruit_INA260::conversionReady(void){
-  return ConversionReady->read();
+  Adafruit_I2CRegisterBits conversion_ready =
+    Adafruit_I2CRegisterBits(MaskEnable, 1, 3);
+  return conversion_ready.read();
 }
