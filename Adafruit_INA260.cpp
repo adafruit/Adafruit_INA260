@@ -8,7 +8,7 @@
  * 	I2C Driver for the INA260 I2C Current and Power sensor
  *
  * 	This is a library for the Adafruit INA260 breakout:
- * 	http://www.adafruit.com/products
+ * 	http://www.adafruit.com/products/4226
  *
  * 	Adafruit invests time and resources providing this open source code,
  *  please support Adafruit and open-source hardware by purchasing products from
