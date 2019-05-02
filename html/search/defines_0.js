@@ -1,17 +1,6 @@
 var searchData=
 [
-  ['ina260_5fcount_5f1',['INA260_COUNT_1',['../_adafruit___i_n_a260_8h.html#aafa5a2e2120e732b17accb7adfe008ae',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f1024',['INA260_COUNT_1024',['../_adafruit___i_n_a260_8h.html#a70592d964f7fe6f231422b2b5ce3106c',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f128',['INA260_COUNT_128',['../_adafruit___i_n_a260_8h.html#a70916842dc4b7c9d5a7c68188c42904b',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f16',['INA260_COUNT_16',['../_adafruit___i_n_a260_8h.html#a08109b67a45a2695b6bf582748fc9433',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f256',['INA260_COUNT_256',['../_adafruit___i_n_a260_8h.html#ac18c6bd404168256251d38c7a239b62c',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f4',['INA260_COUNT_4',['../_adafruit___i_n_a260_8h.html#a928af7eb7a00df32de20844ab45fc46e',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f512',['INA260_COUNT_512',['../_adafruit___i_n_a260_8h.html#a521d77b213cb02a690596d6c905353d9',1,'Adafruit_INA260.h']]],
-  ['ina260_5fcount_5f64',['INA260_COUNT_64',['../_adafruit___i_n_a260_8h.html#a751eee9c3c0568e9b7a42261e7002f4a',1,'Adafruit_INA260.h']]],
   ['ina260_5fi2caddr_5fdefault',['INA260_I2CADDR_DEFAULT',['../_adafruit___i_n_a260_8h.html#a8f6ea354642738c59d5ae434b553e502',1,'Adafruit_INA260.h']]],
-  ['ina260_5fmode_5fcontinuous',['INA260_MODE_CONTINUOUS',['../_adafruit___i_n_a260_8h.html#a8d381437710c54ff1358f5f53aa56e17',1,'Adafruit_INA260.h']]],
-  ['ina260_5fmode_5fshutdown',['INA260_MODE_SHUTDOWN',['../_adafruit___i_n_a260_8h.html#a3c9a9e2d997e30421c32fe20b0810dce',1,'Adafruit_INA260.h']]],
-  ['ina260_5fmode_5ftriggered',['INA260_MODE_TRIGGERED',['../_adafruit___i_n_a260_8h.html#a278e2625713ddbfde965ec069f214cb5',1,'Adafruit_INA260.h']]],
   ['ina260_5freg_5falert_5flimit',['INA260_REG_ALERT_LIMIT',['../_adafruit___i_n_a260_8h.html#ae5429afea49535f76b96c42b432fe0dd',1,'Adafruit_INA260.h']]],
   ['ina260_5freg_5fbusvoltage',['INA260_REG_BUSVOLTAGE',['../_adafruit___i_n_a260_8h.html#a99e318be6fb8aadd292bc74117eec64d',1,'Adafruit_INA260.h']]],
   ['ina260_5freg_5fconfig',['INA260_REG_CONFIG',['../_adafruit___i_n_a260_8h.html#a24da104b112d0646f7c26b7c3439fdd7',1,'Adafruit_INA260.h']]],
@@ -19,13 +8,5 @@ var searchData=
   ['ina260_5freg_5fdie_5fuid',['INA260_REG_DIE_UID',['../_adafruit___i_n_a260_8h.html#a1bd9bfa37a3a2563f02e7d74ba85ad47',1,'Adafruit_INA260.h']]],
   ['ina260_5freg_5fmask_5fenable',['INA260_REG_MASK_ENABLE',['../_adafruit___i_n_a260_8h.html#a236252fc0474aa6a348cb3535cc0e1cb',1,'Adafruit_INA260.h']]],
   ['ina260_5freg_5fmfg_5fuid',['INA260_REG_MFG_UID',['../_adafruit___i_n_a260_8h.html#a4bba8476d96c8ec3acdfa7d251cfdc50',1,'Adafruit_INA260.h']]],
-  ['ina260_5freg_5fpower',['INA260_REG_POWER',['../_adafruit___i_n_a260_8h.html#ac1358d52bfbdd2265fc7571601be2f68',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f140_5fus',['INA260_TIME_140_us',['../_adafruit___i_n_a260_8h.html#ae2d9107d43841f03278d96e7326f76cb',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f1_5f1_5fms',['INA260_TIME_1_1_ms',['../_adafruit___i_n_a260_8h.html#ac4310b0bdf43576b3ef8d0dd7e2c99c6',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f204_5fus',['INA260_TIME_204_us',['../_adafruit___i_n_a260_8h.html#ac8c69d91d935ea6e08f46c343732791d',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f2_5f116_5fms',['INA260_TIME_2_116_ms',['../_adafruit___i_n_a260_8h.html#af6d56c107bc57e03f421ea6e107310da',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f332_5fus',['INA260_TIME_332_us',['../_adafruit___i_n_a260_8h.html#a3975f903038eba9f5333ac1bdedce063',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f4_5f156_5fms',['INA260_TIME_4_156_ms',['../_adafruit___i_n_a260_8h.html#a6dc1e7f3917ca154bb1bf85743f5586c',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f558_5fus',['INA260_TIME_558_us',['../_adafruit___i_n_a260_8h.html#a8178fda349e77167aeeacab286107275',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f8_5f244_5fms',['INA260_TIME_8_244_ms',['../_adafruit___i_n_a260_8h.html#a7e152c2ba975f7f2ff74193b1679a243',1,'Adafruit_INA260.h']]]
+  ['ina260_5freg_5fpower',['INA260_REG_POWER',['../_adafruit___i_n_a260_8h.html#ac1358d52bfbdd2265fc7571601be2f68',1,'Adafruit_INA260.h']]]
 ];
