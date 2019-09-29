@@ -57,7 +57,7 @@ void loop() {
 void rampPixelColors(void){
   pixels.setBrightness(25);
   for(int i=0;i<NUMPIXELS;i++){
-    pixels.setPixelColor(i, pixels.Color(255,0, 0)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(255,0, 0)); // Red
     pixels.show(); // This sends the updated pixel color to the hardware.
     Serial.print(ina260.readCurrent());
     Serial.print(" ");
@@ -70,7 +70,7 @@ void rampPixelColors(void){
 
   pixels.setBrightness(50);
   for(int i=0;i<NUMPIXELS;i++){
-    pixels.setPixelColor(i, pixels.Color(255,255, 0)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(255,255, 0)); // Yellow (Red + Green)
     pixels.show(); // This sends the updated pixel color to the hardware.
     Serial.print(ina260.readCurrent());
     Serial.print(" ");
@@ -83,7 +83,7 @@ void rampPixelColors(void){
 
   pixels.setBrightness(100);
   for(int i=0;i<NUMPIXELS;i++){
-    pixels.setPixelColor(i, pixels.Color(255,255, 255)); // Moderately bright green color.
+    pixels.setPixelColor(i, pixels.Color(255,255, 255)); // White (Red + Green + Blue)
     pixels.show(); // This sends the updated pixel color to the hardware.
     Serial.print(ina260.readCurrent());
     Serial.print(" ");
