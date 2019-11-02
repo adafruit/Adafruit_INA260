@@ -50,7 +50,7 @@ Adafruit_INA260::Adafruit_INA260(void) {}
  *    @return True if initialization was successful, otherwise false.
  */
 boolean Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
-  i2c_dev = new Adafruit_I2CDevice(i2c_address);
+  i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
     return false;
