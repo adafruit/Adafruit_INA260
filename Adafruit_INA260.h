@@ -82,6 +82,26 @@ typedef enum _count {
   INA260_COUNT_1024, ///< Window size: 1024 samples
 } INA260_AveragingCount;
 
+typedef enum _alert_type {
+  INA260_ALERT_CONVERSION_READY = 0x1,
+  INA260_ALERT_OVERPOWER = 0x2,
+  INA260_ALERT_UNDERVOLTAGE = 0x4,
+  INA260_ALERT_OVERVOLTAGE = 0x8,
+  INA260_ALERT_UNDERCURRENT = 0x10,
+  INA260_ALERT_OVERCURRENT = 0x20,
+  INA260_ALERT_NONE = 0x0,
+} INA260_AlertType;
+
+typedef enum _alert_polarity {
+  INA260_ALERT_POLARITY_NORMAL = 0x0,
+  INA260_ALERT_POLARITY_INVERTED = 0x1,
+} INA260_AlertPolarity;
+
+typedef enum _alert_latch {
+  INA260_ALERT_LATCH_ENABLED = 0x1,
+  INA260_ALERT_LATCH_TRANSPARENT = 0x0,
+} INA260_AlertLatch;
+
 /*!
  *    @brief  Class that stores state and functions for interacting with
  *            INA260 Current and Power Sensor
@@ -98,6 +118,16 @@ public:
   INA260_MeasurementMode getMode(void);
 
   bool conversionReady(void);
+  bool alertFunctionFlag(void);
+
+  float getAlertLimit(void);
+  void setAlertLimit(float limit);
+  INA260_AlertLatch getAlertLatch(void);
+  void setAlertLatch(INA260_AlertLatch state);
+  INA260_AlertPolarity getAlertPolarity(void);
+  void setAlertPolarity(INA260_AlertPolarity polarity);
+  INA260_AlertType getAlertType(void);
+  void setAlertType(INA260_AlertType alert);
 
   INA260_ConversionTime getCurrentConversionTime(void);
   void setCurrentConversionTime(INA260_ConversionTime time);
