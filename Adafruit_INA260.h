@@ -82,24 +82,39 @@ typedef enum _count {
   INA260_COUNT_1024, ///< Window size: 1024 samples
 } INA260_AveragingCount;
 
+/**
+ * @brief Alert trigger options.
+ *
+ * Allowed values for setAlertType.
+ */
 typedef enum _alert_type {
-  INA260_ALERT_CONVERSION_READY = 0x1,
-  INA260_ALERT_OVERPOWER = 0x2,
-  INA260_ALERT_UNDERVOLTAGE = 0x4,
-  INA260_ALERT_OVERVOLTAGE = 0x8,
-  INA260_ALERT_UNDERCURRENT = 0x10,
-  INA260_ALERT_OVERCURRENT = 0x20,
-  INA260_ALERT_NONE = 0x0,
+  INA260_ALERT_CONVERSION_READY = 0x1, ///< Trigger on conversion ready
+  INA260_ALERT_OVERPOWER = 0x2, ///< Trigger on power over limit
+  INA260_ALERT_UNDERVOLTAGE = 0x4, ///< Trigger on bus voltage under limit
+  INA260_ALERT_OVERVOLTAGE = 0x8, ///< Trigger on bus voltage over limit
+  INA260_ALERT_UNDERCURRENT = 0x10, ///< Trigger on current under limit
+  INA260_ALERT_OVERCURRENT = 0x20, ///< Trigger on current over limit
+  INA260_ALERT_NONE = 0x0, ///< Do not trigger alert pin (Default)
 } INA260_AlertType;
 
+/**
+ * @brief Alert pin polarity options.
+ *
+ * Allowed values for setAlertPolarity.
+ */
 typedef enum _alert_polarity {
-  INA260_ALERT_POLARITY_NORMAL = 0x0,
-  INA260_ALERT_POLARITY_INVERTED = 0x1,
+  INA260_ALERT_POLARITY_NORMAL = 0x0, ///< Active high open-collector (Default)
+  INA260_ALERT_POLARITY_INVERTED = 0x1, ///< Active low open-collector
 } INA260_AlertPolarity;
 
+/**
+ * @brief Alert pin latch options.
+ *
+ * Allowed values for setAlertLatch.
+ */
 typedef enum _alert_latch {
-  INA260_ALERT_LATCH_ENABLED = 0x1,
-  INA260_ALERT_LATCH_TRANSPARENT = 0x0,
+  INA260_ALERT_LATCH_ENABLED = 0x1, ///< Alert will latch until Mask/Enable register is read
+  INA260_ALERT_LATCH_TRANSPARENT = 0x0, ///< Alert will reset when fault is cleared
 } INA260_AlertLatch;
 
 /*!
