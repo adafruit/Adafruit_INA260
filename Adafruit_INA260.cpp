@@ -325,4 +325,4 @@ bool Adafruit_INA260::alertFunctionFlag(void) {
   Adafruit_I2CRegisterBits alert_function_flag =
       Adafruit_I2CRegisterBits(MaskEnable, 1, 4);
   return alert_function_flag.read();
-} 
+}
