@@ -1,5 +1,16 @@
 var searchData=
 [
+  ['ina260_5falert_5fconversion_5fready',['INA260_ALERT_CONVERSION_READY',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a7cabea1a22091f1a3c65e521dbff2f5d',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5flatch_5fenabled',['INA260_ALERT_LATCH_ENABLED',['../_adafruit___i_n_a260_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4af78def6113e5fb9c29471ccf564d4247',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5flatch_5ftransparent',['INA260_ALERT_LATCH_TRANSPARENT',['../_adafruit___i_n_a260_8h.html#abd786f6e7ca4587a28a8f3b73a4964e4a10799fbad20849e8946c23f994ee88dd',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fnone',['INA260_ALERT_NONE',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a6f6ffc97363472edc6097a2c0825737e',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fovercurrent',['INA260_ALERT_OVERCURRENT',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a3445803f3896af0ac3bbd592ca4d798b',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5foverpower',['INA260_ALERT_OVERPOWER',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a80d3ce4e0bfe8aa1e19700ff095f15ff',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fovervoltage',['INA260_ALERT_OVERVOLTAGE',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a6cc75273596f2f32231c446f84422250',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fpolarity_5finverted',['INA260_ALERT_POLARITY_INVERTED',['../_adafruit___i_n_a260_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1a01a54e76ff53bb20652cb2491a84a0bc',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fpolarity_5fnormal',['INA260_ALERT_POLARITY_NORMAL',['../_adafruit___i_n_a260_8h.html#af92dcd4b13a0d2dfc9665dadc6aa53d1acf9facd1a121b78da758a0bbdaf57773',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fundercurrent',['INA260_ALERT_UNDERCURRENT',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755a01323c7253f7175a852ebe508ac37d69',1,'Adafruit_INA260.h']]],
+  ['ina260_5falert_5fundervoltage',['INA260_ALERT_UNDERVOLTAGE',['../_adafruit___i_n_a260_8h.html#a3f2f5888fded8924162ff8ef86505755accfffbcd60ba659f57a5de8612482bdd',1,'Adafruit_INA260.h']]],
   ['ina260_5fcount_5f1',['INA260_COUNT_1',['../_adafruit___i_n_a260_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983ab62238135734cf291631e0ae0aa05ef6',1,'Adafruit_INA260.h']]],
   ['ina260_5fcount_5f1024',['INA260_COUNT_1024',['../_adafruit___i_n_a260_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983ae8e9edc1f173353d7102d6d22b89b802',1,'Adafruit_INA260.h']]],
   ['ina260_5fcount_5f128',['INA260_COUNT_128',['../_adafruit___i_n_a260_8h.html#a69c4cff6b9a1cd95c71fc56b8dd9a983ae389d386e88a24fc49cac56d8a3c715f',1,'Adafruit_INA260.h']]],
