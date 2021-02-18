@@ -223,3 +223,106 @@ bool Adafruit_INA260::conversionReady(void) {
       Adafruit_I2CRegisterBits(MaskEnable, 1, 3);
   return conversion_ready.read();
 }
+/**************************************************************************/
+/*!
+    @brief Reads the current parameter that asserts the ALERT pin
+    @return The current parameter that asserts the ALERT PIN
+*/
+/**************************************************************************/
+INA260_AlertType Adafruit_INA260::getAlertType(void) {
+  Adafruit_I2CRegisterBits alert_type =
+      Adafruit_I2CRegisterBits(MaskEnable, 6, 10);
+  return (INA260_AlertType)alert_type.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets which parameter asserts the ALERT pin
+    @param alert
+           The parameter which asserts the ALERT pin
+*/
+/**************************************************************************/
+void Adafruit_INA260::setAlertType(INA260_AlertType alert) {
+  Adafruit_I2CRegisterBits alert_type =
+      Adafruit_I2CRegisterBits(MaskEnable, 6, 10);
+  alert_type.write(alert);
+}
+/**************************************************************************/
+/*!
+    @brief Reads the current alert limit setting
+    @return The current bus alert limit setting
+*/
+/**************************************************************************/
+float Adafruit_INA260::getAlertLimit(void) {
+  Adafruit_I2CRegisterBits alert_limit =
+      Adafruit_I2CRegisterBits(AlertLimit, 16, 0);
+  return (float)alert_limit.read() * 1.25;
+}
+/**************************************************************************/
+/*!
+    @brief Sets the Alert Limit
+    @param limit
+           The new limit that triggers the alert
+*/
+/**************************************************************************/
+void Adafruit_INA260::setAlertLimit(float limit) {
+  Adafruit_I2CRegisterBits alert_limit =
+      Adafruit_I2CRegisterBits(AlertLimit, 16, 0);
+  alert_limit.write((int16_t)(limit / 1.25));
+}
+/**************************************************************************/
+/*!
+    @brief Reads the current alert polarity setting
+    @return The current bus alert polarity setting
+*/
+/**************************************************************************/
+INA260_AlertPolarity Adafruit_INA260::getAlertPolarity(void) {
+  Adafruit_I2CRegisterBits alert_polarity =
+      Adafruit_I2CRegisterBits(MaskEnable, 1, 1);
+  return (INA260_AlertPolarity)alert_polarity.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets Alert Polarity Bit
+    @param polarity
+           The polarity of the alert pin
+*/
+/**************************************************************************/
+void Adafruit_INA260::setAlertPolarity(INA260_AlertPolarity polarity) {
+  Adafruit_I2CRegisterBits alert_polarity =
+      Adafruit_I2CRegisterBits(MaskEnable, 1, 1);
+  alert_polarity.write(polarity);
+}
+/**************************************************************************/
+/*!
+    @brief Reads the current alert latch setting
+    @return The current bus alert latch setting
+*/
+/**************************************************************************/
+INA260_AlertLatch Adafruit_INA260::getAlertLatch(void) {
+  Adafruit_I2CRegisterBits alert_latch =
+      Adafruit_I2CRegisterBits(MaskEnable, 1, 0);
+  return (INA260_AlertLatch)alert_latch.read();
+}
+/**************************************************************************/
+/*!
+    @brief Sets Alert Latch Bit
+    @param state
+           The parameter which asserts the ALERT pin
+*/
+/**************************************************************************/
+void Adafruit_INA260::setAlertLatch(INA260_AlertLatch state) {
+  Adafruit_I2CRegisterBits alert_latch =
+      Adafruit_I2CRegisterBits(MaskEnable, 1, 0);
+  alert_latch.write(state);
+}
+/**************************************************************************/
+/*!
+    @brief Checks if the Alert Flag is set
+    @return true if the flag is set
+*/
+/**************************************************************************/
+bool Adafruit_INA260::alertFunctionFlag(void) {
+  Adafruit_I2CRegisterBits alert_function_flag =
+      Adafruit_I2CRegisterBits(MaskEnable, 1, 4);
+  return alert_function_flag.read();
+}
