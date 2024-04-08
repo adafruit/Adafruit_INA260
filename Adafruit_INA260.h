@@ -130,7 +130,11 @@ public:
              TwoWire *theWire = &Wire);
   void reset(void);
   float readCurrent(void);
+  int16_t readCurrentRaw(void);
+  int16_t readCurrentInt16(void);
   float readBusVoltage(void);
+  int16_t readBusVoltageRaw(void);
+  int16_t readBusVoltageInt16(void);
   float readPower(void);
   void setMode(INA260_MeasurementMode mode);
   INA260_MeasurementMode getMode(void);
