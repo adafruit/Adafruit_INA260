@@ -90,14 +90,55 @@ void Adafruit_INA260::reset(void) {
 }
 /**************************************************************************/
 /*!
+    @brief Reads integer ADC count of the current value of the Current register.
+    @return The unscaled current measurement count (mA/1.25)
+*/
+/**************************************************************************/
+int16_t Adafruit_INA260::readCurrentRaw(void) {
+  Adafruit_I2CRegister current =
+      Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
+  return (int16_t)current.read();
+ }
+/**************************************************************************/
+/*!
+    @brief Reads integer ADC count of the current value of the Current register.
+    @return The scaled current measurement in mA
+*/
+/**************************************************************************/
+int16_t Adafruit_INA260::readCurrentInt16(void) {
+  int16_t value = readCurrentRaw();
+  return value + (value >> 2);  // Multiply by 1.25
+ }
+/**************************************************************************/
+/*!
     @brief Reads and scales the current value of the Current register.
     @return The current current measurement in mA
 */
 /**************************************************************************/
 float Adafruit_INA260::readCurrent(void) {
-  Adafruit_I2CRegister current =
-      Adafruit_I2CRegister(i2c_dev, INA260_REG_CURRENT, 2, MSBFIRST);
-  return (int16_t)current.read() * 1.25;
+  int16_t value = readCurrentRaw();
+  return (float)value * 1.25;
+}
+/**************************************************************************/
+/*!
+    @brief Reads integer ADC count of the current value of the Bus Voltage register.
+    @return The unscaled bus voltage measurement count (mV/1.25)
+*/
+/**************************************************************************/
+int16_t Adafruit_INA260::readBusVoltageRaw(void) {
+  Adafruit_I2CRegister bus_voltage =
+      Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
+  return (int16_t)bus_voltage.read();
+}
+/**************************************************************************/
+/*!
+    @brief Reads integer ADC count of the current value of the Bus Voltage register.
+    @return The scaled bus voltage measurement in mV
+*/
+/**************************************************************************/
+int16_t Adafruit_INA260::readBusVoltageInt16(void) {
+  int16_t value = readBusVoltageRaw();
+  return value + (value >> 2);  // Multiply by 1.25
 }
 /**************************************************************************/
 /*!
@@ -106,9 +147,8 @@ float Adafruit_INA260::readCurrent(void) {
 */
 /**************************************************************************/
 float Adafruit_INA260::readBusVoltage(void) {
-  Adafruit_I2CRegister bus_voltage =
-      Adafruit_I2CRegister(i2c_dev, INA260_REG_BUSVOLTAGE, 2, MSBFIRST);
-  return bus_voltage.read() * 1.25;
+  int16_t value = readBusVoltageRaw();
+  return (float)value * 1.25;
 }
 /**************************************************************************/
 /*!
