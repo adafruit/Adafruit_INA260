@@ -59,7 +59,7 @@ typedef enum _conversion_time {
   INA260_TIME_140_us,   ///< Measurement time: 140us
   INA260_TIME_204_us,   ///< Measurement time: 204us
   INA260_TIME_332_us,   ///< Measurement time: 332us
-  INA260_TIME_558_us,   ///< Measurement time: 558us
+  INA260_TIME_588_us,   ///< Measurement time: 588us
   INA260_TIME_1_1_ms,   ///< Measurement time: 1.1ms (Default)
   INA260_TIME_2_116_ms, ///< Measurement time: 2.116ms
   INA260_TIME_4_156_ms, ///< Measurement time: 4.156ms
