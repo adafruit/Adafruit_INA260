@@ -43,6 +43,6 @@ var searchData=
   ['ina260_5ftime_5f2_5f116_5fms',['INA260_TIME_2_116_ms',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136a937eb65f3ee0cfb9f0f5ebafaf94f7fb',1,'Adafruit_INA260.h']]],
   ['ina260_5ftime_5f332_5fus',['INA260_TIME_332_us',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136a455356e4020e5adeecec8f5d3e8be01d',1,'Adafruit_INA260.h']]],
   ['ina260_5ftime_5f4_5f156_5fms',['INA260_TIME_4_156_ms',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136af5bb430cab8c191318c7e9bca05c3f5f',1,'Adafruit_INA260.h']]],
-  ['ina260_5ftime_5f558_5fus',['INA260_TIME_558_us',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136ada82c1b20987667d6d4033ae4c836b4d',1,'Adafruit_INA260.h']]],
+  ['ina260_5ftime_5f588_5fus',['INA260_TIME_588_us',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136a10ad51585f0628a4c17a5fb93d88b35a',1,'Adafruit_INA260.h']]],
   ['ina260_5ftime_5f8_5f244_5fms',['INA260_TIME_8_244_ms',['../_adafruit___i_n_a260_8h.html#a3d5299b93dd7a0c86b731c95366d7136a59c87f164f16b5b619968670d4d4d38b',1,'Adafruit_INA260.h']]]
 ];
