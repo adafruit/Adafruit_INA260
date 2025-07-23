@@ -16,3 +16,22 @@ BSD license, check license.txt for more information
 All text above must be included in any redistribution
 
 To install, use the Arduino Library Manager and search for "Adafruit INA260" and install the library.
+
+
+
+Sets the averaging mode (1x to 1024x) by writing to config register.
+Value from 0–7 corresponding to 1x–1024x
+Added by Sverd Industries to support power smoothing
+
+ina260.setAveragingMode(4); // 128 samples
+
+| avg\_mode | Samples Averaged |
+| --------- | ---------------- |
+| `0`       | 1x               |
+| `1`       | 4x               |
+| `2`       | 16x              |
+| `3`       | 64x              |
+| `4`       | 128x             |
+| `5`       | 256x             |
+| `6`       | 512x             |
+| `7`       | 1024x            |
