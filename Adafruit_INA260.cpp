@@ -39,7 +39,17 @@
 /*!
  *    @brief  Instantiates a new INA260 class
  */
-Adafruit_INA260::Adafruit_INA260(void) {}
+Adafruit_INA260::Adafruit_INA260(void) {
+  i2c_dev = nullptr;
+  Config = nullptr;
+  MaskEnable = nullptr;
+  AlertLimit = nullptr;
+}
+
+/*!
+ *    @brief  The destructor merely calls close()
+ */
+Adafruit_INA260::~Adafruit_INA260(void) { close(); }
 
 /*!
  *    @brief  Sets up the HW
@@ -53,6 +63,8 @@ bool Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
   i2c_dev = new Adafruit_I2CDevice(i2c_address, theWire);
 
   if (!i2c_dev->begin()) {
+    delete i2c_dev;
+    i2c_dev = nullptr;
     return false;
   }
 
@@ -65,8 +77,17 @@ bool Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
 
   // make sure we're talking to the right chip
   if ((mfg_register->read() != 0x5449) || (device_id->read() != 0x227)) {
+    delete device_id;
+    delete mfg_register;
+    delete die_register;
+    i2c_dev->end();
+    delete i2c_dev;
+    i2c_dev = nullptr;
     return false;
   }
+  delete device_id;
+  delete mfg_register;
+  delete die_register;
 
   Config = new Adafruit_I2CRegister(i2c_dev, INA260_REG_CONFIG, 2, MSBFIRST);
   MaskEnable =
@@ -80,7 +101,31 @@ bool Adafruit_INA260::begin(uint8_t i2c_address, TwoWire *theWire) {
 }
 /**************************************************************************/
 /*!
-    @brief Resets the harware. All registers are set to default values,
+    @brief Release any allocated resources
+ */
+/**************************************************************************/
+void Adafruit_INA260::close(void) {
+  if (AlertLimit != nullptr) {
+    delete AlertLimit;
+    AlertLimit = nullptr;
+  }
+  if (MaskEnable != nullptr) {
+    delete MaskEnable;
+    MaskEnable = nullptr;
+  }
+  if (Config != nullptr) {
+    delete Config;
+    Config = nullptr;
+  }
+  if (i2c_dev != nullptr) {
+    i2c_dev->end();
+    delete i2c_dev;
+    i2c_dev = nullptr;
+  }
+}
+/**************************************************************************/
+/*!
+    @brief Resets the hardware. All registers are set to default values,
     the same as a power-on reset.
 */
 /**************************************************************************/

@@ -126,8 +126,10 @@ typedef enum _alert_latch {
 class Adafruit_INA260 {
 public:
   Adafruit_INA260();
+  ~Adafruit_INA260();
   bool begin(uint8_t i2c_addr = INA260_I2CADDR_DEFAULT,
              TwoWire *theWire = &Wire);
+  void close(void);
   void reset(void);
   float readCurrent(void);
   float readBusVoltage(void);
