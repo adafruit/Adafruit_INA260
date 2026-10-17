@@ -10,7 +10,7 @@ int delayval = 100; // delay for half a second
 
 // setup the neopixel strip with it's power running through the IN+ and IN- pins of the INA260
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-Adafruit_INA260 ina260 = Adafruit_INA260();
+Adafruit_INA260 ina260;
 
 
 void setup() {

@@ -6,7 +6,7 @@
 
 int delayval = 100; // delay for half a second
 
-Adafruit_INA260 ina260 = Adafruit_INA260();
+Adafruit_INA260 ina260;
 
 void setup() {
   while (!Serial) { delay(10); }
